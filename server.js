@@ -110,7 +110,10 @@ function extractOtp(body) {
 }
 
 // Fix: Handle missing favicon.ico request
-app.get("/favicon.ico", (req, res) => res.status(204));
+ const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+    });
 
 // Required for Vercel (No app.listen)
 module.exports = app;
